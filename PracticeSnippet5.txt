@@ -1,0 +1,214 @@
+class K 
+{
+	int i;
+
+	public static void main(String[] args) 
+	{
+		K k1 = new K();
+		System.out.println(k1.i);
+		k1.i = 20;
+		System.out.println(k1.i);
+	}
+}
+
+============---------========----------==========
+class L 
+{
+	void test()
+	{
+		System.out.println("from test");
+	}
+	public static void main(String[] args) 
+	{
+		System.out.println("main begin");
+		L ref = new L();
+		ref.test();
+		System.out.println("-----------");
+		ref.test();
+		System.out.println("-----------");
+		ref.test();
+		System.out.println("-----------");
+		System.out.println("main end");
+	}
+}
+==========--------===========--------=========
+class M 
+{
+	int i;
+	public static void main(String[] args) 
+	{
+		M m1 = new M();
+		M m2 = m1;
+		System.out.println(m1.i); // 0
+		System.out.println(m2.i); // 0
+		m1.i = 10;
+		System.out.println(m1.i); // 10
+		System.out.println(m2.i); // 10
+		m2.i = 20;
+		System.out.println(m1.i); //20
+		System.out.println(m2.i); //20
+	}
+}
+==========------------==============--------======
+class N 
+{
+	int i;
+	public static void main(String[] args) 
+	{
+		N n1 = new N();
+		N n2 = n1;
+		N n3 = n2;
+		N n4 = n1;
+		N n5 = n3;
+		n4.i = 20;
+		System.out.println(n1.i); //20
+		System.out.println(n2.i); //20
+		System.out.println(n3.i); //20
+		System.out.println(n4.i); //20
+		System.out.println(n5.i); //20
+		n2.i += 20;
+		System.out.println(n1.i); // 40
+		System.out.println(n2.i); // 40
+		System.out.println(n3.i); // 40
+		System.out.println(n4.i); // 40
+		System.out.println(n5.i); // 40
+	}
+}
+
+=====----------============----------==========
+class O 
+{
+	int i;
+	public static void main(String[] args) 
+	{
+		O ref1 = new O();
+		ref1.i = 10;
+		O ref2 = new O();
+		ref2.i = 20;
+		O ref3 = new O();
+		ref3.i = 30;
+		System.out.println(ref1.i); //10
+		System.out.println(ref2.i); //20
+		System.out.println(ref3.i); //30
+		ref2.i = ref1.i + ref3.i; // 10 + 30 = 40
+		System.out.println(ref1.i); //10
+		System.out.println(ref2.i); //40
+		System.out.println(ref3.i); //30
+	}
+}
+============---------------=============-----------==========
+class P 
+{
+	int i;
+	public static void test()
+	{
+		System.out.println("test begin");
+		P obj = new P();
+		System.out.println(obj.i);
+		obj.i = 10;
+		System.out.println(obj.i);
+		System.out.println("test end");
+	}
+	public static void main(String[] args) 
+	{
+		System.out.println("main begin");
+		test();
+		System.out.println("main end");
+	}
+}
+========------------===========-------======
+class Q
+{
+	int i;
+	public static void test(Q obj)
+	{
+		System.out.println("test begin");
+		System.out.println("c:" + obj.i);
+		obj.i = 10;
+		System.out.println("d:" + obj.i);
+		System.out.println("test end");
+	}
+	public static void main(String[] args) 
+	{
+		System.out.println("main begin");
+		Q ref = new Q();
+		ref.i = 5;
+		System.out.println("a:" + ref.i);
+		test(ref);
+		System.out.println("b:" + ref.i);
+		System.out.println("main end");
+	}
+}
+=========------------===========------------===========
+class R
+{
+	int i;
+	public static R test()
+	{
+		System.out.println("test begin");
+		R obj = new R();
+		System.out.println("c:" + obj.i);
+		obj.i = 10;
+		System.out.println("d:" + obj.i);
+		System.out.println("test end");
+		return obj;
+	}
+	public static void main(String[] args) 
+	{
+		System.out.println("main begin");
+		R ref = test();
+		System.out.println("a:" + ref.i);
+		System.out.println("main end");
+	}
+}
+
+=======-------------===========------------===============
+class S 
+{
+	void test()
+	{
+		System.out.println("test:" + this);
+	}
+	public static void main(String[] args) 
+	{
+		S s1 = new S();
+		System.out.println("main:" + s1);
+		s1.test();
+	}
+}
+==========-----------=============--------------
+class T
+{
+	int i;
+	void test()
+	{
+		System.out.println("test:" + this.i);
+		this.i = 20;
+	}
+	public static void main(String[] args) 
+	{
+		T t1 = new T();
+		t1.i = 10;
+		System.out.println("main1:" + t1.i);
+		t1.test();
+		System.out.println("main2:" + t1.i);
+	}
+}
+========================--------------================
+class U
+{
+	int i;
+	void test()
+	{
+		System.out.println("test:" + i);
+		i = 20;
+	}
+	public static void main(String[] args) 
+	{
+		U obj = new U();
+		obj.i = 10;
+		System.out.println("main1:" + obj.i);
+		obj.test();
+		System.out.println("main2:" + obj.i);
+	}
+}

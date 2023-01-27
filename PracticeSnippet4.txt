@@ -1,0 +1,70 @@
+	public static void main(String[] args) 
+	{
+		static int i;
+		System.out.println("done");
+	}
+=========-------------============------========
+	static int i = 10;
+	static int j = 20;
+	static int k;
+	static int m = 30;
+	public static void main(String[] args) 
+	{
+		System.out.println(i + ", " + j + ", " + k + ", " + m);
+	}
+=============------------===========---------==========
+	static int i = 10, j = 20, k, m = 30;
+	public static void main(String[] args) 
+	{
+		System.out.println(i + ", " + j + ", " + k + ", " + m);
+		i = 50;
+		j = 510;
+		k = 40;
+		m = 140;
+		System.out.println(i + ", " + j + ", " + k + ", " + m);
+	}
+===============------------===========----------======
+	static int i;
+
+	public static void main(String[] args) 
+	{
+		System.out.println("main:" + i);
+	}
+	
+	public static void test()
+	{
+		System.out.println("test:" + i);
+	}
+============----------------==============-------======	
+	static int i;
+
+	public static void main(String[] args) 
+	{
+		System.out.println("main:" + i);
+		test();
+		U.test();
+	}
+	
+	public static void test()
+	{
+		System.out.println("test:" + i);
+	}
+============---------------============----------
+	static int i;
+
+	public static void main(String[] args) 
+	{
+		System.out.println("main1:" + i);
+		i = 1;
+		test();
+		System.out.println("main2:" + i);
+		i = 2;
+		test();
+		System.out.println("main3:" + i);
+	}
+	
+	public static void test()
+	{
+		System.out.println("test:" + i);
+		i += 3;
+	}
