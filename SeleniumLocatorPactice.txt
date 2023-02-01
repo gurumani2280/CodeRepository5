@@ -1,0 +1,71 @@
+locator in selenium/ ways to indentify webElements
+
+id 
+name
+linkText
+partialLinkText
+cssSelector
+xPath
+className
+tagName
+
+
+<input type="text" name="username" placeholder="username">
+
+tagname= input
+attributes -= type, name, 		placeholder
+values  --    text  username	username
+
+
+<input type="checkbox" name="skill" value="selenium">
+
+tagname= input
+attributes -= type, 	name, 		value
+values  --    checkbox  skill		selenium
+
+
+<input type="checkbox" name="skill" value="java">
+
+tagname= input
+attributes -= type, 	name, 		value
+values  --    checkbox  skill		java
+
+
+<textarea id="address" name="address" rows="5" cols="20"></textarea>
+
+tagname= textarea
+attributes -= id, 		name, 		
+values  --    address  	address	
+
+/html/body/form/table/tbody/tr[5]/td[2]/textarea  -- absolute xpath -- 
+//*[@id="address"] -- go for all the tag and check in all the element having id = address
+//textarea[@id='address'] --- go and search for text area tag having id = address
+
+
+<a href="http://www.google.com" title="googleLink">google</a>
+
+tagname= a
+attributes -= href, 					title, 		
+values  --    http://www.google.com  	googleLink	
+visible text == google
+//tagName[text()='text'] -- syntax
+//a[text()='google']
+
+
+
+
+methods of WebDriver Interface
+1. get() -- 
+2. navigate().to()
+3. findElement()
+4. quit()
+5 findElement()
+
+
+
+method of WebElement 
+1. sendKeys("") --
+2. clear()
+3. click()
+4. getAttribute()
+5. getCssValue()
