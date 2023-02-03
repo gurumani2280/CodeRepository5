@@ -23,7 +23,7 @@ casting is of two types primitive casting and object casting
 
 	---  <----  ---< ---- <  --- < narrowing ---  <----  ---< ---- <  --- 
 
-	2. narrowing (explicit widening)
+	2. narrowing (explicit narrowing )
 
 	converting the primitive data from higher type to anyone of the lower type.
 
