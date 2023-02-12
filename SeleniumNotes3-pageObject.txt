@@ -1,0 +1,64 @@
+Q) What are the advantages of pom?
+	Adv: all locators at one place
+	     we can avoid stale element exception
+	Dis: cannot have dynamic locators -- LIMITATIONS OF @FindBy
+
+Q) What is pom design pattern?
+	Pom stands for page object model.
+	To avoid StaleElementReferenceException we use Page Object Model, POM class. 
+	POM is one of the Java design pattern.
+	Every page of web application can be converted into java class. 
+	Using FindBy Annotation (@FindBy)
+	all the WebElements on page are captured as private data members.
+	Every functionality on page is captured as behaviour/member funtion.
+
+Q) How do you handle multiple elements in pom class?
+	 we handle it using @FindBy itself and we change the datatype to List<WebElement>
+	 @FindBy(xpath="//input[@type='checkbox']")
+	 private List<WebElement> allChkBox;
+
+Q) What happens if we do not use intiElements() method in POM class?
+	we get NullPointerException
+
+Q) What is the difference between Page Object Model and PageFactory
+	 POM is java design concept. PageFactory is class which implements concept.
+
+Q) How to create page class?
+	Every web page of web application will have a corresponding java class.
+	all the WebElements on page are captured as private data members
+	Using FindBy Annotation (@FindBy).
+	
+	Every functionality on page is captured as behaviour/member funtion.
+	
+	Create a globle date member - WebDriver reference.
+
+	create public constructor with WebDriver as an argument
+
+	inside constructor 
+		i. initialize global variable WebDriver
+		ii. initialize all web element using page Factory class
+			at one instance using PageFactory.initElements(driver, this)
+	
+	class LoginPage{
+	WebDriver driver;
+		LoginPage(WebDriver driver)
+		{
+		this.driver=driver;
+			PageFactory.initElements(driver,this);
+		}
+		@FindBy(id="xxxx")
+		private WebElement usernameTextField;
+		@FindBy(name="xxxx")
+		private WebElement passwordTextField;
+		@FindBy(xpath="xxxx")
+		private WebElement loginbutton;
+			
+		public void login(String name,String pass)
+		{
+		usernameTextField.sendKeys(name);
+		passwordTextField.sendKeys(pass);
+		loginbutton.click();
+		}
+		
+	}
+
